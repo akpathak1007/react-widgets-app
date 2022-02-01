@@ -3,7 +3,16 @@ import { useState } from "react/cjs/react.development";
 import wiki from "./../api/wikipedia";
 const Search = () => {
   const [term, setTerm] = useState("Programming");
-  const [results, setResult] = useState([]);
+  const [debouncedTerm, setDebouncedTerm] = useState(term);
+    const [results, setResult] = useState([]);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedTerm(term)
+        }, 1000);
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [term]);
   useEffect(() => {
     const search = async () => {
       const { data } = await wiki.get("api.php", {
@@ -13,19 +22,8 @@ const Search = () => {
       });
       setResult(data.query.search);
     };
-    if (term && !results) {
-      search();
-    } else {
-      const timerId = setTimeout(() => {
-        if (term) {
-          search();
-        }
-      }, 500);
-      return () => {
-        clearTimeout(timerId);
-      };
-    }
-  }, [term]);
+    search();
+  }, [debouncedTerm]);
   const renderResult = results.map((result) => {
     return (
       <li key={result.pageid} className="list-group-item">
