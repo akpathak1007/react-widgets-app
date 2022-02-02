@@ -8,32 +8,26 @@ import Translate from "./components/Translate";
 import Route from "./components/Route";
 
 const App = () => {
-  const accordion = () => {
-    if (window.location.pathname === "/") {
-      return <Accordion items={items} />;
-    }
-  };
-  const list = () => {
-    if (window.location.pathname === "/list") {
-      return <Search />;
-    }
-  };
-  const dropdown = () => {
-    if (window.location.pathname === "/dropdown") {
-      return <Dropdown />;
-    }
-  };
-  const translate = () => {
-    if (window.location.pathname === "/translate") {
-      return <Translate />;
-    }
-  };
+  const [selected, setSelected] = useState(dropdownOptions[1]);
   return (
     <div className="container mt-4">
-      {accordion()}
-      {dropdown()}
-      {translate()}
-      {list()}
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          options={ dropdownOptions }
+          selected={ selected }
+          onSelectedChange={ setSelected }
+          label='Select a Color'
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
