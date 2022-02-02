@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "./Link";
 
 const Header = () => {
   return (
-    <div className="navbar navbar-expand-lg navbar-light bg-info">
+    <div className="navbar navbar-expand-md navbar-light bg-info ">
       <div className="container-fluid">
         <a href="#" className="navbar-brand">
           Wedgits
@@ -18,24 +19,24 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbar_content">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <Link href="/" className="nav-link text-dark">
                 Accordion
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/list" className="nav-link">
+              <Link href="/list" className="nav-link">
                 Search
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/dropdown" className="nav-link">
+              <Link href="/dropdown" className="nav-link">
                 Dropdown
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="/translate" className="nav-link">
+              <Link href="/translate" className="nav-link">
                 Translate
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
