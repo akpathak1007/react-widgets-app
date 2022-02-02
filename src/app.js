@@ -4,12 +4,12 @@ import Search from "./components/Search";
 import items from "./data/accordion";
 import dropdownOptions from "./data/dropdown";
 import Dropdown from "./components/Dropdown";
+import Translate from "./components/Translate";
 
 const App = () => {
-  const [selected, setSelected] = useState(dropdownOptions[1]);
   return (
     <div className="container mt-4">
-      <Dropdown selected = {selected} onSelectedChange = {setSelected} options={dropdownOptions} />
+      <Translate />
     </div>
   );
 };
