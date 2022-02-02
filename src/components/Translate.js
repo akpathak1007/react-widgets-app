@@ -6,7 +6,7 @@ const Translate = (props) => {
   const [language, setLanguage] = useState(options[1]);
   const [text, setText] = useState("");
   return (
-    <div>
+    <div className="container my-3">
       <div className="mb-3">
         <label htmlFor="language" className="form-label">
           Enter text

@@ -17,7 +17,7 @@ const Dropdown = ({ options, selected, onSelectedChange, label }) => {
     );
   });
   return (
-    <div>
+    <div className="container my-3">
       <form action="">
         <label htmlFor="" className="form-label">
           {label}

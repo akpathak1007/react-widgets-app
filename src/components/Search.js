@@ -38,7 +38,7 @@ const Search = () => {
     );
   });
   return (
-    <div>
+    <div className="container my-4">
       <input
         value={term}
         className="form-control mb-3"

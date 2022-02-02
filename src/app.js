@@ -6,11 +6,13 @@ import dropdownOptions from "./data/dropdown";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
 import Route from "./components/Route";
+import Header from "./components/Header";
 
 const App = () => {
   const [selected, setSelected] = useState(dropdownOptions[1]);
   return (
-    <div className="container mt-4">
+    <div className="">
+      <Header/>
       <Route path="/">
         <Accordion items={items} />
       </Route>
